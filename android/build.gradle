@@ -17,10 +17,12 @@ buildscript {
   repositories {
     google()
     mavenCentral()
+    maven { url = uri("https://jitpack.io") }
   }
 
   dependencies {
     classpath "com.android.tools.build:gradle:8.7.2"
+    classpath "com.facebook.react:react-native-gradle-plugin"
     // noinspection DifferentKotlinGradleVersion
     classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:${getExtOrDefault('kotlinVersion')}"
   }
@@ -64,4 +66,5 @@ android {
 
 dependencies {
   implementation "com.facebook.react:react-android"
+  implementation("com.github.DeveloperRejaul:usb-serial:v0.0.3")
 }
