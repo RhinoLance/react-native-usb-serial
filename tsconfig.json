@@ -2,7 +2,7 @@
   "compilerOptions": {
     "rootDir": ".",
     "paths": {
-      "react-native-usb-serial": ["./src/index"]
+      "@rejaul/react-native-usb-serial": ["./src/index"]
     },
     "allowUnreachableCode": false,
     "allowUnusedLabels": false,
