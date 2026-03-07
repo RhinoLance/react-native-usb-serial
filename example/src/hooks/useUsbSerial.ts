@@ -7,7 +7,7 @@ import {
   requestUsbPermission,
   isConnected,
   type UsbDevice,
-} from 'react-native-usb-serial';
+} from '@rejaul/react-native-usb-serial';
 
 export interface UseUsbSerialReturn {
   devices: UsbDevice[];

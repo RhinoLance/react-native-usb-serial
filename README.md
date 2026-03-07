@@ -48,9 +48,9 @@ A professional-grade React Native module providing seamless USB serial communica
 > **Android Only:** This package only works on Android devices. It will not function on iOS.
 
 ```bash
-npm install react-native-usb-serial
+npm install @rejaul/react-native-usb-serial
 # or
-yarn add react-native-usb-serial
+yarn add @rejaul/react-native-usb-serial
 ```
 
 ### Android Configuration
@@ -70,7 +70,7 @@ Add USB permissions to your `AndroidManifest.xml`:
 import {
   getDeviceList,
   type UsbDevice,
-} from 'react-native-usb-serial';
+} from '@rejaul/react-native-usb-serial';
 
 // Get all connected USB devices
 const devices: UsbDevice[] = getDeviceList();
@@ -90,7 +90,7 @@ import {
   requestUsbPermission,
   connect,
   disconnect,
-} from 'react-native-usb-serial';
+} from '@rejaul/react-native-usb-serial';
 
 async function connectToDevice(device: UsbDevice): Promise<void> {
   try {
@@ -128,7 +128,7 @@ import {
   offReadInterval,
   type RawReadConfig,
   NativeEventEmitter,
-} from 'react-native-usb-serial';
+} from '@rejaul/react-native-usb-serial';
 
 // Configure reading parameters
 const readConfig: RawReadConfig = {
@@ -158,7 +158,7 @@ subscription.remove();
 ### Writing Data to Serial Port
 
 ```typescript
-import { write, isConnected } from 'react-native-usb-serial';
+import { write, isConnected } from '@rejaul/react-native-usb-serial';
 
 async function sendCommand(command: string): Promise<void> {
   try {
@@ -181,7 +181,7 @@ await sendCommand('AT+RST\r\n');
 ### Manual Serial Reading
 
 ```typescript
-import { read } from 'react-native-usb-serial';
+import { read } from '@rejaul/react-native-usb-serial';
 
 async function readSerialData(): Promise<void> {
   try {
@@ -210,7 +210,7 @@ import {
   type SoilSensorConfig,
   type SoilData,
   NativeEventEmitter,
-} from 'react-native-usb-serial';
+} from '@rejaul/react-native-usb-serial';
 
 // Configure modbus soil sensor
 const soilConfig: SoilSensorConfig = {
@@ -251,7 +251,7 @@ subscription.remove();
 ### Get Currently Connected Device
 
 ```typescript
-import { getConnectedDevice } from 'react-native-usb-serial';
+import { getConnectedDevice } from '@rejaul/react-native-usb-serial';
 
 const device = await getConnectedDevice();
 if (device) {
@@ -289,7 +289,7 @@ soilSub.remove();
 ## Error Handling
 
 ```typescript
-import { connect, type UsbDevice } from 'react-native-usb-serial';
+import { connect, type UsbDevice } from '@rejaul/react-native-usb-serial';
 
 async function safeConnect(device: UsbDevice): Promise<void> {
   try {

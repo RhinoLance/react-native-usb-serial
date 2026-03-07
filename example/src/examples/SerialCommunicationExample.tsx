@@ -19,7 +19,7 @@ import {
   write,
   isConnected,
   type RawReadConfig,
-} from 'react-native-usb-serial';
+} from '@rejaul/react-native-usb-serial';
 
 interface SerialData {
   timestamp: number;
