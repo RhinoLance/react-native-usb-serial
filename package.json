@@ -1,6 +1,6 @@
 {
   "name": "react-native-usb-serial",
-  "version": "1.0.0",
+  "version": "0.0.1",
   "description": "Production-ready React Native USB serial communication module for Android with Modbus RTU soil sensor support",
   "main": "./lib/module/index.js",
   "types": "./lib/typescript/src/index.d.ts",

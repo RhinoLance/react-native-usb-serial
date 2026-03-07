@@ -8,6 +8,7 @@ import {
   ActivityIndicator,
   NativeEventEmitter,
   ScrollView,
+  Platform,
 } from 'react-native';
 import {
   getDeviceList,
@@ -152,8 +153,12 @@ export default function App() {
 
   // Scan on mount
   useEffect(() => {
-    scanDevices();
-    const interval = setInterval(scanDevices, 5000);
+     let interval: ReturnType<typeof setTimeout>;
+      if(Platform.OS === 'android') {
+       scanDevices();
+       interval = setInterval(scanDevices, 5000);
+    }
+   
     return () => clearInterval(interval);
   }, []);
 
@@ -187,9 +192,11 @@ export default function App() {
         }
       }
     };
+    if(Platform.OS === 'android') {
+      startListening();
+    }
 
-    startListening();
-
+    
     return () => {
       isActive = false;
       if (subscription) {

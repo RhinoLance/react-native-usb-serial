@@ -1,4 +1,4 @@
-import { TurboModuleRegistry, type TurboModule } from 'react-native';
+import { TurboModuleRegistry, type TurboModule , Platform} from 'react-native';
 
 export type UsbDevice = {
   deviceName: string;
@@ -113,4 +113,8 @@ export type UsbSoilEvent = {
   [key: string]: number;
 };
 
-export default TurboModuleRegistry.getEnforcing<Spec>('UsbSerial');
+function getModule(): Spec {
+ return Platform.OS === 'android' ? TurboModuleRegistry.getEnforcing<Spec>('UsbSerial') : {} as Spec;
+}
+
+export default getModule();
