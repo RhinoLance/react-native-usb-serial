@@ -155,7 +155,16 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: 🚚 Publish to NPM
+      - name: � Setup NPM Authentication
+        run: |
+          mkdir -p ~/.npm
+          cat > ~/.npmrc << EOF
+          //registry.npmjs.org/:_authToken=${{ secrets.NPM_TOKEN }}
+          registry=https://registry.npmjs.org/
+          EOF
+          chmod 600 ~/.npmrc
+
+      - name: �🚚 Publish to NPM
         run: npm publish --access public
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
