@@ -1,5 +1,5 @@
 {
-  "name": "@rejaul/react-native-usb-serial",
+  "name": "@rhinosw/react-native-usb-serial",
   "version": "0.0.1",
   "description": "Production-ready React Native USB serial communication module for Android with Modbus RTU soil sensor support",
   "main": "./lib/module/index.js",
@@ -54,14 +54,14 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/DeveloperRejaul/react-native-usb-serial.git"
+    "url": "git+https://github.com/RhinoLance/react-native-usb-serial.git"
   },
-  "author": "Rezaul Karim <devrejaul.official@gmail.com> (https://github.com/DeveloperRejaul)",
+  "author": "Rezaul Karim <devrhinolance.official@gmail.com> (https://github.com/RhinoLance)",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/DeveloperRejaul/react-native-usb-serial/issues"
+    "url": "https://github.com/RhinoLance/react-native-usb-serial/issues"
   },
-  "homepage": "https://github.com/DeveloperRejaul/react-native-usb-serial#readme",
+  "homepage": "https://github.com/RhinoLance/react-native-usb-serial#readme",
   "publishConfig": {
     "registry": "https://registry.npmjs.org/"
   },

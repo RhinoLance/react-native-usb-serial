@@ -18,7 +18,7 @@ import {
   offReadSoilDataInterval,
   type SoilSensorConfig,
   type SoilData,
-} from '@rejaul/react-native-usb-serial';
+} from '@rhinosw/react-native-usb-serial';
 
 interface SensorReading {
   timestamp: number;

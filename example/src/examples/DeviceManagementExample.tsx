@@ -21,7 +21,7 @@ import {
   requestUsbPermission,
   getConnectedDevice,
   type UsbDevice,
-} from '@rejaul/react-native-usb-serial';
+} from '@rhinosw/react-native-usb-serial';
 
 interface DeviceState {
   allDevices: UsbDevice[];

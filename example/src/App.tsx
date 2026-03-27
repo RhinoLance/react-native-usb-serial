@@ -20,7 +20,7 @@ import {
   offReadInterval,
   write,
   type UsbDevice,
-} from '@rejaul/react-native-usb-serial';
+} from '@rhinosw/react-native-usb-serial';
 
 interface DeviceItemProps {
   device: UsbDevice;

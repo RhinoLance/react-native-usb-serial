@@ -7,7 +7,7 @@ import {
   requestUsbPermission,
   isConnected,
   type UsbDevice,
-} from '@rejaul/react-native-usb-serial';
+} from '@rhinosw/react-native-usb-serial';
 
 export interface UseUsbSerialReturn {
   devices: UsbDevice[];
