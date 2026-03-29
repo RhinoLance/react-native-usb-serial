@@ -7,17 +7,48 @@ import com.facebook.react.bridge.Arguments
 import com.facebook.react.bridge.WritableArray
 import com.facebook.react.bridge.WritableMap
 import com.facebook.react.bridge.ReadableMap
-import com.rezaul.usbserial.UsbManager
+import com.rezaul.usbserial.UsbManager as CustomUsbManager
 import com.facebook.react.modules.core.DeviceEventManagerModule
 import com.rezaul.usbserial.RawReadConfig
 import com.rezaul.usbserial.SoilSensorConfig
 import com.facebook.react.bridge.Promise
 
+import android.content.BroadcastReceiver
+import android.content.Context
+import android.content.Intent
+import android.content.IntentFilter
+import android.hardware.usb.UsbManager
+
 @ReactModule(name = UsbSerialModule.NAME)
+
+
 class UsbSerialModule(reactContext: ReactApplicationContext) :
     NativeUsbSerialSpec(reactContext) {
 
-    private val usbManager = UsbManager(reactContext)
+    private val usbReceiver = object : BroadcastReceiver() {
+        override fun onReceive(context: Context?, intent: Intent?) {
+            val device = intent?.getParcelableExtra<UsbDevice>(UsbManager.EXTRA_DEVICE)
+			val deviceMap = device?.let { usbDeviceToMap(it) }
+			when (intent?.action) {
+				UsbManager.ACTION_USB_DEVICE_ATTACHED -> {
+					sendEvent("USB_DEVICE_ATTACHED", deviceMap)
+				}
+				UsbManager.ACTION_USB_DEVICE_DETACHED -> {
+					sendEvent("USB_DEVICE_DETACHED", deviceMap)
+				}
+			}
+        }
+    }
+
+    init {
+        val filter = IntentFilter().apply {
+            addAction(UsbManager.ACTION_USB_DEVICE_ATTACHED)
+            addAction(UsbManager.ACTION_USB_DEVICE_DETACHED)
+        }
+        reactApplicationContext.registerReceiver(usbReceiver, filter)
+    }
+
+    private val usbManager = CustomUsbManager(reactContext)
 
     override fun multiply(a: Double, b: Double): Double {
         return a * b
